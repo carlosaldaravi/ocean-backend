@@ -12,10 +12,10 @@ export class CreateStudentDto {
   password: string;
 
   @IsNotEmpty()
-  firstName: StudentSize;
+  firstName: string;
 
   @IsNotEmpty()
-  lastName: StudentSize;
+  lastName: string;
 
   @IsNotEmpty()
   phone: string;
@@ -33,5 +33,5 @@ export class CreateStudentDto {
   city: string;
 
   @IsOptional()
-  disponibilidad: string;
+  availability: string;
 }

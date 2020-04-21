@@ -1,4 +1,4 @@
-import { Controller, Post, UsePipes, ValidationPipe, Body, Logger } from '@nestjs/common';
+import { Controller, Post, UsePipes, ValidationPipe, Body, Logger, Get } from '@nestjs/common';
 import { StudentService } from './student.service';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { Student } from './student.entity';
@@ -7,6 +7,11 @@ import { Student } from './student.entity';
 export class StudentController {
     private logger = new Logger('StudentController');
     constructor(private studentService: StudentService) {}
+
+    @Get()
+    getStudent() {
+        return "This is the student";
+    }
 
     @Post()
     @UsePipes(ValidationPipe)
