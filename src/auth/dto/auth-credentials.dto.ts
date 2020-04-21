@@ -3,7 +3,7 @@ import { IsString, MinLength, MaxLength, Matches, IsEmail } from 'class-validato
 export class AuthCredentialsDto {
   @IsEmail()
   @MinLength(4)
-  @MaxLength(20)
+  @MaxLength(50)
   email: string;
 
 //   @IsString()
