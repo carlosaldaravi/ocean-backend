@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from "typeorm";
-import { Student } from "./student.entity";
+import { Student } from "../entity/student.entity";
 import { Logger, InternalServerErrorException, ConflictException } from "@nestjs/common";
 import { CreateStudentDto } from "./dto/create-student.dto";
 import { AuthCredentialsDto } from "src/auth/dto/auth-credentials.dto";
