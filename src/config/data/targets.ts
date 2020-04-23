@@ -12,7 +12,7 @@ export const targets_DB_DATA = [
     {
         name: "Horas altas a 2 manos",
         level: "1",
-        description: "Mover la cometa por toda la zona neutra a dos manos"
+        description: "Mover la cometa entre las horas 11 y 1 en la zona neutra a dos manos"
     },
     {
         name: "Mitad de zona neutra a 1 mano",
