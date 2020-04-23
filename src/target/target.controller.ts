@@ -3,7 +3,7 @@ import { TargetService } from './target.service';
 import { Target } from '../entity/target.entity';
 import { GetUser } from 'src/auth/get-user.decorator';
 import { Student } from 'src/entity/student.entity';
-import { StudentTargets } from 'src/entity/student-target.entity';
+import { StudentTarget } from 'src/entity/student-target.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { User } from 'src/entity/user.entity';
 
@@ -31,10 +31,7 @@ export class TargetController {
         @Param('id', ParseIntPipe) targetId: number,
         @Body() body:any,
         @GetUser() user: User,
-    ): Promise<StudentTargets> {
-        console.log('userId: ', body.userId);
-        console.log('feedback: ', body.feedback);
-        
-        return this.targetService.setStudentTargetFeedback(targetId, body.userId, body.feedback);
+    ): Promise<StudentTarget> {
+        return this.targetService.setStudentTargetFeedback(targetId, body.studentId, body.feedback, user);
     }
 }

@@ -1,24 +1,16 @@
-import { Entity, Column, ManyToOne, PrimaryGeneratedColumn, BaseEntity, JoinColumn, PrimaryColumn, OneToOne } from "typeorm";
+import { Entity, Column, ManyToOne, BaseEntity, JoinColumn } from "typeorm";
 import { Student } from "./student.entity";
 import { Target } from "./target.entity";
 import { Instructor } from "./instructor.entity";
 
 @Entity()
-export class StudentTargets extends BaseEntity {
-    @PrimaryColumn()
-    studentId!: number;
-
-    @PrimaryColumn()
-    targetId!: number;
+export class StudentTarget extends BaseEntity {
 
     @Column('timestamp with time zone', { nullable: false, default: () => 'CURRENT_TIMESTAMP' })
     date!: Date;
 
-    @Column({ nullable: true, default: '' })
-    feedback: string;
-    
     @Column({ nullable: true })
-    validatedBy!: Instructor;
+    feedback: string;
 
     @ManyToOne(type => Student, { primary: true })
     @JoinColumn({ name: 'studentId' })
@@ -28,7 +20,7 @@ export class StudentTargets extends BaseEntity {
     @JoinColumn({ name: 'targetId' })
     target!: Target;
     
-    @ManyToOne(type => Instructor, { eager: true })
+    @ManyToOne(type => Instructor)
     @JoinColumn({ name: 'validatedBy' })
     instructor!: Instructor;
 }
