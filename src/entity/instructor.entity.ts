@@ -1,6 +1,6 @@
 import { Entity, Column, BaseEntity, JoinColumn, OneToOne, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { User } from 'src/entity/user.entity';
-import { StudentTargets } from './student-target.entity';
+import { StudentTarget } from './student-target.entity';
 
 @Entity()
 export class Instructor extends BaseEntity {
@@ -30,7 +30,7 @@ export class Instructor extends BaseEntity {
   @JoinColumn()
   user: User;
   
-  @OneToMany(type => StudentTargets, studentTargets => studentTargets.validatedBy, { eager: true })
-  studentTargets: StudentTargets[];
+  @OneToMany(type => StudentTarget, StudentTarget => StudentTarget.instructor, { eager: true })
+  StudentTarget: StudentTarget[];
 
 }
