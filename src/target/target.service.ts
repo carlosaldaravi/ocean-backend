@@ -32,7 +32,7 @@ export class TargetService {
         id: number,
         student: Student,
       ): Promise<StudentTargets> {
-        const found = await StudentTargets.findOne({ where: { targetId: id, studentId: student.id } });
+        const found = await StudentTargets.findOne({ where: { targetId: id, studentId: student.user.id } });
     
         if (!found) {
           throw new NotFoundException(`Student target with ID "${id}" not found`);

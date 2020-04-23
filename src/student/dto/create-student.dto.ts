@@ -1,15 +1,8 @@
 import { IsNotEmpty, MaxLength, MinLength, IsEmail, IsOptional } from 'class-validator';
 import { StudentSize } from '../student-size.enum';
+import { User } from 'src/entity/user.entity';
 
 export class CreateStudentDto {
-  @IsEmail()
-  @MinLength(4)
-  @MaxLength(50)
-  @IsNotEmpty()
-  email: string;
-
-  @IsNotEmpty()
-  password: string;
 
   @IsNotEmpty()
   firstName: string;

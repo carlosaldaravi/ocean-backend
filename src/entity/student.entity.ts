@@ -1,11 +1,31 @@
-import { Entity, Column, OneToMany, ManyToMany, JoinTable } from 'typeorm';
+import { Entity, Column, ManyToMany, JoinTable, OneToOne, JoinColumn, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
 import { StudentSize } from '../student/student-size.enum';
 import { User } from 'src/entity/user.entity';
-import { StudentTargets } from './student-target.entity';
 import { Target } from './target.entity';
 
 @Entity()
-export class Student extends User {
+export class Student extends BaseEntity {
+
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  firstName: string;
+  
+  @Column()
+  lastName: string;
+  
+  @Column()
+  phone: string;
+  
+  @Column({ nullable: true })
+  availability: string;
+  
+  @Column({ nullable: true, default: null })
+  dateBorn: Date;
+  
+  @Column({ nullable: true })
+  city: string;
 
   @Column({ nullable: true })
   size: StudentSize;
@@ -13,7 +33,11 @@ export class Student extends User {
   @Column({ nullable: true })
   knownWay: string;
 
-  @ManyToMany(type => Target, { cascade: true })
+  @OneToOne(type => User, { eager: true })
+  @JoinColumn()
+  user: User;
+
+  @ManyToMany(type => Target, { eager: true, cascade: true })
   @JoinTable({ name: "student_targets" })
   targets: Target[];
 
