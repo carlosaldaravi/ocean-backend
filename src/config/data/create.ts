@@ -79,21 +79,23 @@ export const setDefaultValues = async () => {
             console.log('Adding students...');
 
             let userAux = await User.findOne({ id: 2});
-            student.user = userAux;
-            student.firstName = "Carmen";
-            student.lastName = "Rico";
-            student.phone = "696969696";
-            student.size = StudentSize.M;
-            // student.dateBorn = new Date("21-10-1998");
-            student.availability = null;
-            student.city = 'Petrer';
-            student.knownWay = null;
-            
-            // targets_DB_DATA.forEach( target => targets.push(new Target(target)));
-            let target = await Target.findOne({ id: 1});
-            let target2 = await Target.findOne({ id: 2});
-            student.targets = [ target, target2 ];
-            await student.save();
+            if(userAux) {
+                student.user = userAux;
+                student.firstName = "Carmen";
+                student.lastName = "Rico";
+                student.phone = "696969696";
+                student.size = StudentSize.M;
+                // student.dateBorn = new Date("21-10-1998");
+                student.availability = null;
+                student.city = 'Petrer';
+                student.knownWay = null;
+                
+                // targets_DB_DATA.forEach( target => targets.push(new Target(target)));
+                // let target = await Target.findOne({ id: 1});
+                // let target2 = await Target.findOne({ id: 2});
+                // student.targets = [ target, target2 ];
+                await student.save();
+            }
 
             // await getConnection()
             // .createQueryBuilder()
