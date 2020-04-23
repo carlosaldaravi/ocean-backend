@@ -13,10 +13,10 @@ async function bootstrap() {
 
   
   if (process.env.NODE_ENV === 'development') {
-    app.use(cors());
-    setDefaultValues();
+    // app.use(cors());
     
-    // app.enableCors();
+    setDefaultValues();
+    app.enableCors();
   } else {
     app.enableCors({ origin: serverConfig.origin });
     logger.log(`Accepting requests from origin "${serverConfig.origin}"`);

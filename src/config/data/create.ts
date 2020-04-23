@@ -1,20 +1,22 @@
 import { getConnection } from 'typeorm';
-import { CreateStudentDto } from '../../student/dto/create-student.dto';
 import { students_DB_DATA } from './students';
 import { targets_DB_DATA } from './targets';
+import { users_DB_DATA } from './users';
 import { Student } from 'src/entity/student.entity';
 import { Target } from 'src/entity/target.entity';
 import { StudentSize } from 'src/student/student-size.enum';
-import { StudentTargets } from 'src/entity/student-target.entity';
 import * as bcrypt from 'bcryptjs'
+import { User } from 'src/entity/user.entity';
+import { Instructor } from 'src/entity/instructor.entity';
+import { StudentTargets } from 'src/entity/student-target.entity';
 
 
 // insert data base examples
 
 export const setDefaultValues = async () => {
+    let instructor: Instructor = new Instructor();
     let student: Student = new Student();
     let target: Target = new Target();
-    console.log('setDefaultValues');
     
     try {
         // Targets
@@ -31,38 +33,96 @@ export const setDefaultValues = async () => {
             .execute(); 
         }
 
+        // Users {
+        if(await User.count() == 0) {
+            console.log('Adding users..');
+            let user1: User = new User();
+            let user2: User = new User();
+            user1.email = "carlos@gmail.com";
+            user1.salt = await bcrypt.genSalt();
+            user1.password = await bcrypt.hash('1234', user1.salt);
+            user1.save();
+            
+            user2.email = "carmen@gmail.com";
+            user2.salt = await bcrypt.genSalt();
+            user2.password = await bcrypt.hash('1234', user2.salt);
+            user2.save();
+
+            await getConnection()
+            .createQueryBuilder()
+            .insert()
+            .into("user")
+            .values(users_DB_DATA)
+            .execute(); 
+        }
+
+        // Instructor
+        if(await Instructor.count() == 0) {
+            console.log('Adding instructors...');
+
+            let userAux = await User.findOne({ id: 1});
+            instructor.user = userAux;
+            instructor.firstName = "Carlos";
+            instructor.lastName = "Aldaravi";
+            instructor.phone = "653642915";
+            // instructor.dateBorn = new Date("17-06-1987");
+            instructor.availability = null;
+            instructor.city = 'Santa Pola';
+            
+            // targets_DB_DATA.forEach( target => targets.push(new Target(target)));
+            await instructor.save();
+
+        }
+
         // Students
         if(await Student.count() == 0) {
             console.log('Adding students...');
-            
-            student.email = "prueba1@gmail.com";
-            student.salt = await bcrypt.genSalt();
-            student.password = await bcrypt.hash('1234', student.salt);
-            student.firstName = "Carlos";
-            student.lastName = "Aldaravi";
-            student.phone = "653642915";
+
+            let userAux = await User.findOne({ id: 2});
+            student.user = userAux;
+            student.firstName = "Carmen";
+            student.lastName = "Rico";
+            student.phone = "696969696";
             student.size = StudentSize.M;
-            student.dateBorn = new Date("02-06-1995");
-            student.disponibilidad = null;
-            student.city = 'Santa Pola';
+            // student.dateBorn = new Date("21-10-1998");
+            student.availability = null;
+            student.city = 'Petrer';
             student.knownWay = null;
             
             // targets_DB_DATA.forEach( target => targets.push(new Target(target)));
             let target = await Target.findOne({ id: 1});
             let target2 = await Target.findOne({ id: 2});
             student.targets = [ target, target2 ];
-
-            console.log(student);
-
             await student.save();
 
-            await getConnection()
-            .createQueryBuilder()
-            .insert()
-            .into("student")
-            .values(students_DB_DATA)
-            .execute(); 
+            // await getConnection()
+            // .createQueryBuilder()
+            // .insert()
+            // .into("student")
+            // .values(students_DB_DATA)
+            // .execute();
         }
+        
+        // Validate student targets by instructor
+        // if(await StudentTargets.count() != 0) {
+        //     console.log('Validating targets...');
+            
+        //     let studentTargets = new StudentTargets();
+        //     studentTargets = await StudentTargets.findOne({ studentId: 1, targetId: 1 });
+        //     let instructor = await Instructor.findOne({ id: 1 });
+
+        //     if(studentTargets) {
+        //         studentTargets.validatedBy = instructor;
+        //         await studentTargets.save();
+        //     }
+
+        //     // await getConnection()
+        //     // .createQueryBuilder()
+        //     // .insert()
+        //     // .into("student")
+        //     // .values(students_DB_DATA)
+        //     // .execute();
+        // }
 
     } catch (error) {
         console.log('Error setting default values', error);
