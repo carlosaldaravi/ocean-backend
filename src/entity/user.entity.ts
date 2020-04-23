@@ -3,7 +3,7 @@ import * as bcrypt from 'bcryptjs';
 
 @Entity()
 @Unique(['email'])
-export abstract class User extends BaseEntity {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -16,23 +16,8 @@ export abstract class User extends BaseEntity {
   @Column()
   salt: string;
   
-  @Column()
-  firstName: string;
-  
-  @Column()
-  lastName: string;
-  
-  @Column()
-  phone: string;
-  
-  @Column({ nullable: true })
-  disponibilidad: string;
-  
-  @Column()
-  dateBorn: Date;
-  
-  @Column({ nullable: true })
-  city: string;
+  @Column({ nullable: true, default: false })
+  admin: boolean;
 
 //   @OneToMany(type => Task, task => task.user, { eager: true })
 //   tasks: Task[];
