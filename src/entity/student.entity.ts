@@ -38,7 +38,7 @@ export class Student extends BaseEntity {
   user: User;
 
   @ManyToMany(type => Target, { eager: true, cascade: true })
-  @JoinTable({ name: "student_targets" })
+  @JoinTable({ name: "student_target" })
   targets: Target[];
 
 

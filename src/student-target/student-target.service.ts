@@ -22,12 +22,6 @@ export class StudentTargetService {
     ): Promise<StudentTarget> {
         return await this.studentTargetRepository.getStudentTargetById(studentId, targetId);
     }
-    // if (!found) {
-    //     throw new NotFoundException(`StudentTarget with ID "${id}" not found`);
-    // }
-
-    // return found;
-    // }
 
     async createStudentTarget(
         createStudentTargetDto: CreateStudentTargetDto,

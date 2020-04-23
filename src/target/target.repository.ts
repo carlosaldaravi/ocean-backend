@@ -1,7 +1,6 @@
 import { EntityRepository, Repository } from "typeorm";
 import { Target } from "../entity/target.entity";
 import { Logger } from "@nestjs/common";
-import { Student } from "src/entity/student.entity";
 
 @EntityRepository(Target)
 export class TargetRepository extends Repository<Target> {
