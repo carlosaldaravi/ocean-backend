@@ -1,5 +1,5 @@
 import { Entity, Column, BaseEntity, OneToMany, PrimaryGeneratedColumn, JoinTable, ManyToMany } from 'typeorm';
-import { StudentTargets } from 'src/entity/student-target.entity';
+import { StudentTarget } from 'src/entity/student-target.entity';
 import { Student } from './student.entity';
 
 @Entity()

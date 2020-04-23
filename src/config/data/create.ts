@@ -8,7 +8,7 @@ import { StudentSize } from 'src/student/student-size.enum';
 import * as bcrypt from 'bcryptjs'
 import { User } from 'src/entity/user.entity';
 import { Instructor } from 'src/entity/instructor.entity';
-import { StudentTargets } from 'src/entity/student-target.entity';
+import { StudentTarget } from 'src/entity/student-target.entity';
 
 
 // insert data base examples
@@ -104,16 +104,16 @@ export const setDefaultValues = async () => {
         }
         
         // Validate student targets by instructor
-        // if(await StudentTargets.count() != 0) {
+        // if(await StudentTarget.count() != 0) {
         //     console.log('Validating targets...');
             
-        //     let studentTargets = new StudentTargets();
-        //     studentTargets = await StudentTargets.findOne({ studentId: 1, targetId: 1 });
+        //     let StudentTarget = new StudentTarget();
+        //     StudentTarget = await StudentTarget.findOne({ studentId: 1, targetId: 1 });
         //     let instructor = await Instructor.findOne({ id: 1 });
 
-        //     if(studentTargets) {
-        //         studentTargets.validatedBy = instructor;
-        //         await studentTargets.save();
+        //     if(StudentTarget) {
+        //         StudentTarget.validatedBy = instructor;
+        //         await StudentTarget.save();
         //     }
 
         //     // await getConnection()

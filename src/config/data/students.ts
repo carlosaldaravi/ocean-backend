@@ -1,12 +1,7 @@
-import { CreateStudentDto } from "src/student/dto/create-student.dto";
 import { StudentSize } from "src/student/student-size.enum";
-import * as bcrypt from 'bcryptjs';
 
 export const students_DB_DATA = [
 	{
-		"email": "faucibus2@placerategetvenenatis.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Quamar",
 		"lastName": "Howe",
 		"phone": "16380524 5291",
@@ -17,9 +12,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Vivamus.rhoncus@atvelit.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Quamar",
 		"lastName": "Lyons",
 		"phone": "16730812 5363",
@@ -30,9 +22,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "eu@disparturientmontes.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Leigh",
 		"lastName": "Caldwell",
 		"phone": "16331102 7191",
@@ -43,9 +32,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "neque.venenatis.lacus@Proineget.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Stuart",
 		"lastName": "Conway",
 		"phone": "16450328 3980",
@@ -56,9 +42,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "nec.urna.suscipit@ultrices.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Uma",
 		"lastName": "Mercer",
 		"phone": "16680403 4632",
@@ -69,9 +52,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "gravida.non.sollicitudin@utaliquam.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Ryder",
 		"lastName": "Blackburn",
 		"phone": "16741109 0355",
@@ -82,9 +62,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "enim.mi@euaccumsan.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Leonard",
 		"lastName": "Bowers",
 		"phone": "16060305 4743",
@@ -95,9 +72,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "diam.eu.dolor@euarcu.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Macon",
 		"lastName": "Hewitt",
 		"phone": "16301002 0182",
@@ -108,9 +82,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "id.nunc.interdum@nasceturridiculus.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Vielka",
 		"lastName": "Solis",
 		"phone": "16680628 2106",
@@ -121,9 +92,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "neque.Morbi.quis@atlacusQuisque.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jolie",
 		"lastName": "Walters",
 		"phone": "16230519 6319",
@@ -134,9 +102,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "eu.elit.Nulla@eu.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Oleg",
 		"lastName": "Lawson",
 		"phone": "16070505 1134",
@@ -147,9 +112,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "diam@morbitristique.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Susan",
 		"lastName": "Mccray",
 		"phone": "16610108 8133",
@@ -160,9 +122,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "a.aliquet@euodio.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Omar",
 		"lastName": "Holt",
 		"phone": "16181209 7788",
@@ -173,9 +132,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "elit@diamSeddiam.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Colleen",
 		"lastName": "Dixon",
 		"phone": "16100401 3221",
@@ -186,9 +142,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "neque@erat.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "James",
 		"lastName": "Campbell",
 		"phone": "16111014 2195",
@@ -199,9 +152,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "euismod.et.commodo@utmi.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jackson",
 		"lastName": "Garner",
 		"phone": "16211123 6291",
@@ -212,9 +162,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "egestas.ligula@tempordiamdictum.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Medge",
 		"lastName": "Reeves",
 		"phone": "16590905 6771",
@@ -225,9 +172,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Suspendisse@lacusvarius.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Cedric",
 		"lastName": "Love",
 		"phone": "16261011 6911",
@@ -238,9 +182,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "velit@tincidunt.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jael",
 		"lastName": "Austin",
 		"phone": "16910701 6736",
@@ -251,9 +192,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "risus@Cum.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Graiden",
 		"lastName": "Ellison",
 		"phone": "16591110 5467",
@@ -264,9 +202,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "faucibus.orci.luctus@congueaaliquet.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Sydnee",
 		"lastName": "King",
 		"phone": "16200126 6606",
@@ -277,9 +212,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "eros@ridiculus.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Audrey",
 		"lastName": "Gentry",
 		"phone": "16500327 9725",
@@ -290,9 +222,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "nec.ante@scelerisque.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Xander",
 		"lastName": "Miller",
 		"phone": "16930520 6642",
@@ -303,9 +232,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "rutrum@urnajusto.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Lane",
 		"lastName": "Emerson",
 		"phone": "16601030 4530",
@@ -316,9 +242,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "auctor.vitae@necurnaet.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Ulysses",
 		"lastName": "Weber",
 		"phone": "16660627 4733",
@@ -329,9 +252,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Ut.tincidunt@acmattis.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Bernard",
 		"lastName": "Kelly",
 		"phone": "16120227 0292",
@@ -342,9 +262,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "tellus.sem@lobortis.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Erica",
 		"lastName": "Spears",
 		"phone": "16691005 5034",
@@ -355,9 +272,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "libero@pretium.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Blake",
 		"lastName": "Holland",
 		"phone": "16360108 9901",
@@ -368,9 +282,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Sed.molestie@Sed.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Colorado",
 		"lastName": "Bennett",
 		"phone": "16991201 4942",
@@ -381,9 +292,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Mauris.vel@vitaeodiosagittis.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Martin",
 		"lastName": "Hanson",
 		"phone": "16820229 0618",
@@ -394,9 +302,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "interdum.ligula@risus.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jocelyn",
 		"lastName": "Gordon",
 		"phone": "16080401 3910",
@@ -407,9 +312,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Sed@sit.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Griffin",
 		"lastName": "Goff",
 		"phone": "16640307 0151",
@@ -420,9 +322,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "arcu.Morbi.sit@ipsumPhasellusvitae.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Portia",
 		"lastName": "Sexton",
 		"phone": "16430420 8681",
@@ -433,9 +332,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "ante.dictum@feugiat.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Rebekah",
 		"lastName": "Knowles",
 		"phone": "16960221 5429",
@@ -446,9 +342,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "facilisi.Sed.neque@felis.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Allistair",
 		"lastName": "Gray",
 		"phone": "16420406 0349",
@@ -459,9 +352,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "facilisis.facilisis@eratnonummy.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Breanna",
 		"lastName": "Page",
 		"phone": "16430421 8219",
@@ -472,9 +362,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "auctor@blanditatnisi.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jillian",
 		"lastName": "Cook",
 		"phone": "16030903 7620",
@@ -485,9 +372,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "venenatis@Naminterdum.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Kasimir",
 		"lastName": "Harding",
 		"phone": "16071011 2715",
@@ -498,9 +382,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "eget@non.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Tanek",
 		"lastName": "Mcdaniel",
 		"phone": "16721016 5689",
@@ -511,9 +392,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "enim@atrisus.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jakeem",
 		"lastName": "Hendrix",
 		"phone": "16890403 0494",
@@ -524,9 +402,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Nullam.suscipit.est@est.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Britanney",
 		"lastName": "Roman",
 		"phone": "16641206 6489",
@@ -537,9 +412,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "nec.leo.Morbi@tempordiamdictum.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Macon",
 		"lastName": "Horton",
 		"phone": "16630907 1337",
@@ -550,9 +422,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "varius.ultrices.mauris@enimdiamvel.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Grant",
 		"lastName": "Jacobson",
 		"phone": "16470804 2959",
@@ -563,9 +432,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "et@odioNam.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Alden",
 		"lastName": "Cochran",
 		"phone": "16530130 8655",
@@ -576,9 +442,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "dictum@quam.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Tatiana",
 		"lastName": "Miller",
 		"phone": "16500423 0867",
@@ -589,9 +452,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "at@quam.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Mark",
 		"lastName": "Freeman",
 		"phone": "16020604 3101",
@@ -602,9 +462,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "penatibus@Suspendisse.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Kiona",
 		"lastName": "Velazquez",
 		"phone": "16640723 6840",
@@ -615,9 +472,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "sem.consequat.nec@Quisquelibero.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Ferris",
 		"lastName": "Day",
 		"phone": "16150520 1788",
@@ -628,9 +482,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Mauris.ut.quam@litoratorquentper.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Ariel",
 		"lastName": "Washington",
 		"phone": "16540322 9379",
@@ -641,9 +492,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "leo@eratvel.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Harlan",
 		"lastName": "Long",
 		"phone": "16491030 9105",
@@ -654,9 +502,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "tristique.neque@ultrices.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Elmo",
 		"lastName": "Love",
 		"phone": "16300709 0883",
@@ -667,9 +512,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "urna@aliquetvel.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Kiayada",
 		"lastName": "Butler",
 		"phone": "16360629 5305",
@@ -680,9 +522,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "erat.volutpat@fringilla.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Chastity",
 		"lastName": "Alexander",
 		"phone": "16340805 2219",
@@ -693,9 +532,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "et.ultrices@porttitor.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Nomlanga",
 		"lastName": "Christensen",
 		"phone": "16210729 3074",
@@ -706,9 +542,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "mus@egetvenenatisa.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Luke",
 		"lastName": "Horne",
 		"phone": "16200117 0808",
@@ -719,9 +552,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "justo@Etiamvestibulum.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Yuli",
 		"lastName": "Kent",
 		"phone": "16320507 5082",
@@ -732,9 +562,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "suscipit.est@Integerid.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Malachi",
 		"lastName": "Rodriguez",
 		"phone": "16501120 1992",
@@ -745,9 +572,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "eu.eleifend@CuraeDonectincidunt.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Fallon",
 		"lastName": "Whitfield",
 		"phone": "16931227 5093",
@@ -758,9 +582,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "dapibus.quam@nonsollicitudin.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jane",
 		"lastName": "Gallegos",
 		"phone": "16290114 3368",
@@ -771,9 +592,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "a@Mauris.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Avye",
 		"lastName": "Bowen",
 		"phone": "16930209 8117",
@@ -784,9 +602,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "elit.dictum@InloremDonec.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Clarke",
 		"lastName": "Reyes",
 		"phone": "16160829 9713",
@@ -797,9 +612,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "a@rhoncus.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Chelsea",
 		"lastName": "Swanson",
 		"phone": "16900412 7735",
@@ -810,9 +622,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "mauris.blandit.mattis@netuset.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Allistair",
 		"lastName": "Horn",
 		"phone": "16520709 0951",
@@ -823,9 +632,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "tempus.eu@consectetuer.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Berk",
 		"lastName": "Reed",
 		"phone": "16720504 9203",
@@ -836,9 +642,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "vulputate.dui.nec@velitAliquam.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Aspen",
 		"lastName": "Bates",
 		"phone": "16280919 2954",
@@ -849,9 +652,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "quis.lectus.Nullam@auctorvitae.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Echo",
 		"lastName": "Brown",
 		"phone": "16650228 4828",
@@ -862,9 +662,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "luctus.et.ultrices@diam.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Ruth",
 		"lastName": "Small",
 		"phone": "16410915 0682",
@@ -875,9 +672,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Phasellus.elit@esttemporbibendum.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Matthew",
 		"lastName": "Alford",
 		"phone": "16480508 2866",
@@ -888,9 +682,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "eu.turpis@Vivamus.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jasper",
 		"lastName": "Solomon",
 		"phone": "16940426 8279",
@@ -901,9 +692,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "dolor.dolor@Proin.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Mallory",
 		"lastName": "Humphrey",
 		"phone": "16111202 5802",
@@ -914,9 +702,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Curabitur.consequat.lectus@arcuacorci.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Chester",
 		"lastName": "Cobb",
 		"phone": "16210126 8239",
@@ -927,9 +712,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "libero.est@Donecelementum.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Cedric",
 		"lastName": "Green",
 		"phone": "16580104 1343",
@@ -940,9 +722,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "nec@velconvallisin.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Herrod",
 		"lastName": "Heath",
 		"phone": "16930807 5945",
@@ -953,9 +732,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Quisque.ac@Vivamus.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Leslie",
 		"lastName": "Vaughan",
 		"phone": "16440514 9552",
@@ -966,9 +742,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "ridiculus.mus.Proin@arcueuodio.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Jaden",
 		"lastName": "Mcconnell",
 		"phone": "16751113 3873",
@@ -979,9 +752,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "pede.Praesent.eu@liberolacus.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Walter",
 		"lastName": "Yang",
 		"phone": "16670314 0852",
@@ -992,9 +762,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "scelerisque@egestasnuncsed.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Leila",
 		"lastName": "Kennedy",
 		"phone": "16671130 5158",
@@ -1005,9 +772,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "vitae@eros.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Madison",
 		"lastName": "Glenn",
 		"phone": "16500230 8376",
@@ -1018,9 +782,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "tempus.lorem.fringilla@Suspendisse.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Cullen",
 		"lastName": "Wood",
 		"phone": "16470825 3465",
@@ -1031,9 +792,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "ante@tempor.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Kendall",
 		"lastName": "Bowman",
 		"phone": "16700128 3204",
@@ -1044,9 +802,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "ultrices.a.auctor@In.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Ciara",
 		"lastName": "Blackburn",
 		"phone": "16350213 7262",
@@ -1057,9 +812,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "interdum.Sed.auctor@Duisatlacus.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Beck",
 		"lastName": "Snider",
 		"phone": "16270423 8431",
@@ -1070,9 +822,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "sagittis@blanditenim.org",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Dorian",
 		"lastName": "King",
 		"phone": "16020327 5276",
@@ -1083,9 +832,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "rutrum@tortornibhsit.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Matthew",
 		"lastName": "Burks",
 		"phone": "16390903 8360",
@@ -1096,9 +842,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "nec@orcisem.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Brady",
 		"lastName": "Short",
 		"phone": "16580712 1875",
@@ -1109,9 +852,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "vitae.risus.Duis@ac.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Dexter",
 		"lastName": "Jennings",
 		"phone": "16620313 9990",
@@ -1122,9 +862,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "nulla@risusIn.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Aurelia",
 		"lastName": "Austin",
 		"phone": "16060912 0365",
@@ -1135,9 +872,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "ipsum@sapien.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Hector",
 		"lastName": "Santos",
 		"phone": "16250605 2097",
@@ -1148,9 +882,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "mauris@consectetuer.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Alisa",
 		"lastName": "Cross",
 		"phone": "16510510 6917",
@@ -1161,9 +892,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "adipiscing.enim@viverraMaecenasiaculis.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Catherine",
 		"lastName": "Tillman",
 		"phone": "16380917 6948",
@@ -1174,9 +902,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "convallis.ligula@lorem.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Laith",
 		"lastName": "Santana",
 		"phone": "16830321 0275",
@@ -1187,9 +912,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "tincidunt.tempus.risus@Proinegetodio.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Alisa",
 		"lastName": "Higgins",
 		"phone": "16300206 6250",
@@ -1200,9 +922,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "magna.tellus.faucibus@aliquetPhasellusfermentum.com",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Baxter",
 		"lastName": "Combs",
 		"phone": "16160509 9892",
@@ -1213,9 +932,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "pede@tempor.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Cheyenne",
 		"lastName": "Winters",
 		"phone": "16310516 4796",
@@ -1226,9 +942,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "Duis.sit.amet@quis.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Carter",
 		"lastName": "Bruce",
 		"phone": "16610301 6926",
@@ -1239,9 +952,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "libero.Donec.consectetuer@duiFusce.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Quin",
 		"lastName": "Moody",
 		"phone": "16910705 5049",
@@ -1252,9 +962,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "sodales@felis.edu",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Anika",
 		"lastName": "Mason",
 		"phone": "16090522 6924",
@@ -1265,9 +972,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "dolor@auctorveliteget.co.uk",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Phoebe",
 		"lastName": "Torres",
 		"phone": "16021223 8133",
@@ -1278,9 +982,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "in@elitCurabitursed.ca",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Micah",
 		"lastName": "Mcdaniel",
 		"phone": "16231001 8912",
@@ -1291,9 +992,6 @@ export const students_DB_DATA = [
 		"disponibilidad": null
 	},
 	{
-		"email": "rutrum.justo.Praesent@montesnasceturridiculus.net",
-		"salt":  "$2a$10$bcanqLFep8/3LSRKLSvJLO",
-        "password": "$2a$10$bcanqLFep8/3LSRKLSvJLOPngAIura0K613fknXnT/g3WpwvJy286",
 		"firstName": "Connor",
 		"lastName": "Richards",
 		"phone": "16760412 2445",
