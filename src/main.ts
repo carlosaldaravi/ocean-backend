@@ -3,7 +3,7 @@ import { Logger } from '@nestjs/common';
 import { AppModule } from './app.module';
 import * as config from 'config';
 import * as cors from 'cors';
-import { createDataTesting } from './config/data/create';
+import { setDefaultValues } from './config/data/create';
 
 
 async function bootstrap() {
@@ -14,6 +14,8 @@ async function bootstrap() {
   
   if (process.env.NODE_ENV === 'development') {
     app.use(cors());
+    setDefaultValues();
+    
     // app.enableCors();
   } else {
     app.enableCors({ origin: serverConfig.origin });
@@ -23,8 +25,6 @@ async function bootstrap() {
   const port = process.env.PORT || serverConfig.port;
   await app.listen(port);
   logger.log(`Application listening on port ${port}`);
-
-  // createDataTesting();
 
 }
 bootstrap();
