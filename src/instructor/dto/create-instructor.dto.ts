@@ -1,10 +1,10 @@
-import { IsNotEmpty, MaxLength, MinLength, IsEmail, IsOptional } from 'class-validator';
-import { User } from 'src/entity/user.entity';
+import { IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
 
 export class CreateInstructorDto {
-
+  
   @IsNotEmpty()
-  userId: User;
+  @IsEmail()
+  email: string;
 
   @IsNotEmpty()
   firstName: string;

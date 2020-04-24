@@ -1,4 +1,4 @@
-import { IsNotEmpty, MaxLength, MinLength, IsEmail, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 import { StudentSize } from '../student-size.enum';
 
 export class CreateStudentDto {
