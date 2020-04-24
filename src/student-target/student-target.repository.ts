@@ -42,6 +42,8 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
         try {
             let instructor = await Instructor.findOne({ where: { userId: user.id }})
             
+            if(!instructor) throw new UnauthorizedException('You are not instructor');
+
             students.forEach( async (s) => {
                 let student = await Student.findOne({ id: s.studentId });
                 
@@ -76,6 +78,8 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
             let target = await Target.findOne({ id: targetId })
             let instructor = await Instructor.findOne({ where: { userId: user.id }})
             
+            if(!instructor) throw new UnauthorizedException('You are not instructor');
+
             if(!student || !target) {
                 throw new NotFoundException(`Not found`);
             }
@@ -146,22 +150,14 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
 
     async setFeedback(studentId: number, targetId: number, feedback: string, user: User) {
         try {
-
-            let instructor = await Instructor.findOne({ id: user.id });
-            
-            if(!instructor) {
-                throw new UnauthorizedException('No eres instructor');
-            }
-            
+            let instructor = this.checkInstructor(user);
             let studentTarget = await StudentTarget.findOne({studentId, targetId});
             
             if(!studentTarget) {
                 throw new NotFoundException(`Not found`);
             }
-            
-            if(studentTarget.validatedBy !== instructor.id) {
-                throw new UnauthorizedException('No eres instructor de este alumno');
-            }
+
+            this.checkInstructorOfThis(studentTarget, instructor);
             
             studentTarget.feedback = feedback;
             studentTarget.save();
@@ -170,6 +166,29 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
             throw error;
         }
 
+    }
+
+    async checkInstructor(user) {
+        try {
+            let instructor = await Instructor.findOne({ id: user.id });
+            
+            if(!instructor) {
+                throw new UnauthorizedException('No eres instructor');
+            }
+            return instructor;
+        } catch (error) {
+            throw error;
+        }
+    }
+    
+    async checkInstructorOfThis(studentTarget, instructor) {
+        try {
+            if(studentTarget.validatedBy !== instructor.id) {
+                throw new UnauthorizedException('No eres instructor de este alumno');
+            }
+        } catch (error) {
+            throw error;
+        }
     }
 
 }

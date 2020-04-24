@@ -35,7 +35,6 @@ export class StudentTargetController {
         return this.studentTargetService.getStudentTargetById(studentId, targetId);
     }
 
-    // Comprobar que el creador es instructor
     @Post()
     createStudentTarget(
         @Body() createStudentTargetDto: CreateStudentTargetDto,
@@ -46,7 +45,6 @@ export class StudentTargetController {
         return this.studentTargetService.createStudentTarget(createStudentTargetDto, user);
     }
     
-    // Comprobar que el creador es instructor
     @Post('/all')
     createStudentsTargets(
         @Body() payload: any,
@@ -56,8 +54,7 @@ export class StudentTargetController {
 
         return this.studentTargetService.createStudentsTargets(payload, user);
     }
-    
-    // Comprobar que el instructor que hace el feedback es el creador
+
     @Patch('/:studentId/:targetId')
     setFeedback(
         @Param('studentId', ParseIntPipe) studentId: number,
