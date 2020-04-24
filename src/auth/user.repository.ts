@@ -6,7 +6,7 @@ import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<User> {
     const { email, password } = authCredentialsDto;
 
     const user = this.create();
@@ -16,6 +16,11 @@ export class UserRepository extends Repository<User> {
 
     try {
       await user.save();
+      
+      delete user.password;
+      delete user.salt;
+
+      return user;
     } catch (error) {
       if (error.code === '23505') { // duplicate email
         throw new ConflictException('email already exists');
