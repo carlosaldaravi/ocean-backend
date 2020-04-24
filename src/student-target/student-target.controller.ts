@@ -5,6 +5,7 @@ import { GetUser } from 'src/auth/get-user.decorator';
 import { User } from 'src/entity/user.entity';
 import { AuthGuard } from '@nestjs/passport';
 import { CreateStudentTargetDto } from './dto/create-student-target.dto';
+import { Target } from 'src/entity/target.entity';
 
 @Controller('student-target')
 @UseGuards(AuthGuard('jwt'))
@@ -17,6 +18,13 @@ export class StudentTargetController {
         @Param('studentId', ParseIntPipe) studentId: number
     ): Promise<StudentTarget[]> {
         return this.studentTargetService.getStudentTargetsDoneByStudent(studentId);
+    }
+    
+    @Get('/notdone/:studentId')
+    async getStudentTargetsNotDoneByStudent(
+        @Param('studentId', ParseIntPipe) studentId: number
+    ): Promise<Target[]> {
+        return this.studentTargetService.getStudentTargetsNotDoneByStudent(studentId);
     }
 
     @Get('/:studentId/:targetId')

@@ -84,5 +84,30 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
             console.log(error);
         }
     }
+    
+    async getStudentTargetsNotDoneByStudent(studentId: number): Promise<Target[]> {
+        try {
+            const targets = await Target
+                .createQueryBuilder("target")
+                .where((qb) => {
+                    const subQuery = qb.subQuery()
+                                        .select()
+                                        .from(StudentTarget, "student_target")
+                                        .where(`student_target.targetId = target.id`)
+                                        .andWhere(`student_target.studentId = ${studentId}`)
+                                        .getQuery();
+                    return "NOT EXISTS " + subQuery;
+                })
+                .getMany();
+            
+            if(!targets) {
+                throw new NotFoundException(`Not found`);
+            }
+
+            return targets;
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
 }

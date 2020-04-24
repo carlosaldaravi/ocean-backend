@@ -4,6 +4,7 @@ import { User } from 'src/entity/user.entity';
 import { StudentTargetRepository } from './student-target.repository';
 import { StudentTarget } from 'src/entity/student-target.entity';
 import { CreateStudentTargetDto } from './dto/create-student-target.dto';
+import { Target } from 'src/entity/target.entity';
 
 @Injectable()
 export class StudentTargetService {
@@ -38,7 +39,7 @@ export class StudentTargetService {
         return this.studentTargetRepository.getStudentTargetsDoneByStudent(studentId);
     }
     
-    // async getStudentTargetsNotDoneByStudent(student: Student): Promise<StudentTarget[]> {
-    //     return this.studentTargetRepository.getStudentTargetsNotDoneByStudent(student);
-    // }
+    async getStudentTargetsNotDoneByStudent(studentId: number): Promise<Target[]> {
+        return this.studentTargetRepository.getStudentTargetsNotDoneByStudent(studentId);
+    }
 }
