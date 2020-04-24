@@ -38,15 +38,23 @@ export const setDefaultValues = async () => {
             console.log('Adding users..');
             let user1: User = new User();
             let user2: User = new User();
+            let user3: User = new User();
+
             user1.email = "carlos@gmail.com";
             user1.salt = await bcrypt.genSalt();
             user1.password = await bcrypt.hash('1234', user1.salt);
+            user1.admin = true;
             user1.save();
             
-            user2.email = "carmen@gmail.com";
+            user2.email = "instructor@gmail.com";
             user2.salt = await bcrypt.genSalt();
             user2.password = await bcrypt.hash('1234', user2.salt);
             user2.save();
+
+            user3.email = "alumno@gmail.com";
+            user3.salt = await bcrypt.genSalt();
+            user3.password = await bcrypt.hash('1234', user2.salt);
+            user3.save();
 
             await getConnection()
             .createQueryBuilder()
@@ -60,8 +68,7 @@ export const setDefaultValues = async () => {
         if(await Instructor.count() == 0) {
             console.log('Adding instructors...');
 
-            let userAux = await User.findOne({ id: 1});
-            instructor.user = userAux;
+            instructor.userId = 2;
             instructor.firstName = "Carlos";
             instructor.lastName = "Aldaravi";
             instructor.phone = "653642915";
@@ -78,24 +85,21 @@ export const setDefaultValues = async () => {
         if(await Student.count() == 0) {
             console.log('Adding students...');
 
-            let userAux = await User.findOne({ id: 2});
-            if(userAux) {
-                student.user = userAux;
-                student.firstName = "Carmen";
-                student.lastName = "Rico";
-                student.phone = "696969696";
-                student.size = StudentSize.M;
-                // student.dateBorn = new Date("21-10-1998");
-                student.availability = null;
-                student.city = 'Petrer';
-                student.knownWay = null;
-                
-                // targets_DB_DATA.forEach( target => targets.push(new Target(target)));
-                // let target = await Target.findOne({ id: 1});
-                // let target2 = await Target.findOne({ id: 2});
-                // student.targets = [ target, target2 ];
-                await student.save();
-            }
+            student.userId = 3;
+            student.firstName = "Carmen";
+            student.lastName = "Rico";
+            student.phone = "696969696";
+            student.size = StudentSize.M;
+            // student.dateBorn = new Date("21-10-1998");
+            student.availability = null;
+            student.city = 'Petrer';
+            student.knownWay = null;
+            
+            // targets_DB_DATA.forEach( target => targets.push(new Target(target)));
+            // let target = await Target.findOne({ id: 1});
+            // let target2 = await Target.findOne({ id: 2});
+            // student.targets = [ target, target2 ];
+            await student.save();
 
             // await getConnection()
             // .createQueryBuilder()
