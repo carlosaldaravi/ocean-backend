@@ -9,14 +9,14 @@ export class StudentTarget extends BaseEntity {
     @Column('timestamp with time zone', { nullable: false, default: () => 'CURRENT_TIMESTAMP' })
     date!: Date;
 
-    @Column({ nullable: true })
+    @Column()
     feedback: string;
 
-    @ManyToOne(type => Student, { primary: true })
+    @ManyToOne(type => Student, { eager: true, primary: true })
     @JoinColumn({ name: 'studentId' })
     student!: Student;
     
-    @ManyToOne(type => Target, { primary: true })
+    @ManyToOne(type => Target, { primary: true, eager: true })
     @JoinColumn({ name: 'targetId' })
     target!: Target;
     
