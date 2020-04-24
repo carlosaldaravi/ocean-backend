@@ -35,6 +35,30 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
         }
     }
 
+    async createStudentsTargets(
+        students: any,
+        user: User
+    ): Promise<any> {
+        try {
+            let instructor = await Instructor.findOne({ where: { userId: user.id }})
+            
+            students.forEach( async (s) => {
+                let student = await Student.findOne({ id: s.studentId });
+                let targets = s.targetId;
+                targets.forEach( async (t) => {
+                    let studentTarget = new StudentTarget();
+                    studentTarget.studentId = student.id;
+                    studentTarget.targetId = t;
+                    studentTarget.validatedBy = instructor.id;
+                    studentTarget.feedback = '';
+                    await studentTarget.save();
+                });
+            });
+            return { status: 200 };
+        } catch (error) {
+            console.log(error);
+        }
+    }
     async createStudentTarget(
         createStudentTargetDto: CreateStudentTargetDto,
         user: User

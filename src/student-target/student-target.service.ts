@@ -31,6 +31,13 @@ export class StudentTargetService {
         return this.studentTargetRepository.createStudentTarget(createStudentTargetDto, user);
     }
     
+    async createStudentsTargets(
+        payload: any,
+        user: User
+    ): Promise<any> {
+        return this.studentTargetRepository.createStudentsTargets(payload, user);
+    }
+    
     // async getStudentTargetsByLevel(level): Promise<StudentTarget[]> {
     //     return this.studentTargetRepository.getStudentTargetsByLevel(level);
     // }

@@ -44,5 +44,15 @@ export class StudentTargetController {
         
         return this.studentTargetService.createStudentTarget(createStudentTargetDto, user);
     }
+    
+    @Post('/all')
+    createStudentsTargets(
+        @Body() payload: any,
+        @GetUser() user: User,
+    ): Promise<any> {
+        this.logger.verbose(`Creating a new student target. Data: ${JSON.stringify(payload)}`);
+
+        return this.studentTargetService.createStudentsTargets(payload, user);
+    }
 
 }
