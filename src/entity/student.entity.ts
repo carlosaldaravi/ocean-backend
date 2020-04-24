@@ -34,7 +34,7 @@ export class Student extends BaseEntity {
   knownWay: string;
 
   @OneToOne(type => User, { eager: true })
-  @JoinColumn()
+  @JoinColumn({ name: "userId" })
   user: User;
 
   @ManyToMany(type => Target, { eager: true, cascade: true })

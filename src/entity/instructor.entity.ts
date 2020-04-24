@@ -27,7 +27,7 @@ export class Instructor extends BaseEntity {
   city: string;
 
   @OneToOne(type => User)
-  @JoinColumn()
+  @JoinColumn({ name: "userId "})
   user: User;
   
   @OneToMany(type => StudentTarget, StudentTarget => StudentTarget.instructor, { eager: true })
