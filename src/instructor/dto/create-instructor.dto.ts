@@ -2,8 +2,8 @@ import { IsNotEmpty, IsEmail, IsOptional } from 'class-validator';
 
 export class CreateInstructorDto {
   
-  @IsNotEmpty()
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
   @IsNotEmpty()

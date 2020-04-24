@@ -37,6 +37,7 @@ export class StudentRepository extends Repository<Student> {
             delete student.user.password;
             delete student.user.salt;
             delete student.user.admin;
+            delete student.user.id;
 
             return student;
         } catch (error) {

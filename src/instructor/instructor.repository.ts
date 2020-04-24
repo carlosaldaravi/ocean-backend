@@ -27,16 +27,19 @@ export class InstructorRepository extends Repository<Instructor> {
         instructor.dateBorn = dateBorn;
 
         try {
-            let user = await User.findOne( email );
+            let user = await User.findOne({ email });
+            
             if(!user) {
                 throw new NotFoundException('User not found');
             }
-            instructor.userId = user.id;
+            
+            instructor.user = user;
             await instructor.save();
             
             delete instructor.user.password;
             delete instructor.user.salt;
             delete instructor.user.admin;
+            delete instructor.user.id;
             
             return instructor;
         } catch (error) {
