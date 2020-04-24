@@ -53,7 +53,7 @@ export const setDefaultValues = async () => {
 
             user3.email = "alumno@gmail.com";
             user3.salt = await bcrypt.genSalt();
-            user3.password = await bcrypt.hash('1234', user2.salt);
+            user3.password = await bcrypt.hash('1234', user3.salt);
             user3.save();
 
             await getConnection()
