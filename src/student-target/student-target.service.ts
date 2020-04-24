@@ -50,7 +50,12 @@ export class StudentTargetService {
         return this.studentTargetRepository.getStudentTargetsNotDoneByStudent(studentId);
     }
     
-    async setFeedback(studentId, targetId, feedback: string): Promise<StudentTarget> {
-        return this.studentTargetRepository.setFeedback(studentId, targetId, feedback);
+    async setFeedback(
+        studentId: number,
+        targetId: number,
+        feedback: string,
+        user: User
+    ): Promise<StudentTarget> {
+        return this.studentTargetRepository.setFeedback(studentId, targetId, feedback, user);
     }
 }

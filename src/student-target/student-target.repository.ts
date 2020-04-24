@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm";
 import { Target } from "../entity/target.entity";
-import { Logger, NotFoundException, InternalServerErrorException } from "@nestjs/common";
+import { Logger, NotFoundException, InternalServerErrorException, UnauthorizedException } from "@nestjs/common";
 import { Student } from "src/entity/student.entity";
 import { User } from "src/entity/user.entity";
 import { StudentTarget } from "src/entity/student-target.entity";
@@ -144,12 +144,23 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
         }
     }
 
-    async setFeedback(studentId: number, targetId: number, feedback: string) {
+    async setFeedback(studentId: number, targetId: number, feedback: string, user: User) {
         try {
+
+            let instructor = await Instructor.findOne({ id: user.id });
+            
+            if(!instructor) {
+                throw new UnauthorizedException('No eres instructor');
+            }
+            
             let studentTarget = await StudentTarget.findOne({studentId, targetId});
             
             if(!studentTarget) {
                 throw new NotFoundException(`Not found`);
+            }
+            
+            if(studentTarget.validatedBy !== instructor.id) {
+                throw new UnauthorizedException('No eres instructor de este alumno');
             }
             
             studentTarget.feedback = feedback;
