@@ -16,6 +16,10 @@ export class Target extends BaseEntity {
     @Column()
     description: string;
 
+    @ManyToMany(type => Student, { cascade: true })
+    @JoinTable({ name: "student_target" })
+    students: Student[];
+
     constructor(params?: { name: string, level: string, description: string }) {
         super();
         if(params){

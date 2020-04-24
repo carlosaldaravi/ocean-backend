@@ -10,14 +10,21 @@ import { CreateStudentTargetDto } from './dto/create-student-target.dto';
 @UseGuards(AuthGuard('jwt'))
 export class StudentTargetController {
     private logger = new Logger('StudentsController');
-    constructor(private StudentTargetService: StudentTargetService) {}
+    constructor(private studentTargetService: StudentTargetService) {}
+
+    @Get('/done/:studentId')
+    async getStudentTargetsDoneByStudent(
+        @Param('studentId', ParseIntPipe) studentId: number
+    ): Promise<StudentTarget[]> {
+        return this.studentTargetService.getStudentTargetsDoneByStudent(studentId);
+    }
 
     @Get('/:studentId/:targetId')
     getStudentTargetById(
         @Param('studentId', ParseIntPipe) studentId: number,
         @Param('targetId', ParseIntPipe) targetId: number
     ): Promise<StudentTarget> {
-        return this.StudentTargetService.getStudentTargetById(studentId, targetId);
+        return this.studentTargetService.getStudentTargetById(studentId, targetId);
     }
 
     @Post()
@@ -27,8 +34,7 @@ export class StudentTargetController {
     ): Promise<StudentTarget> {
         this.logger.verbose(`Creating a new student target. Data: ${JSON.stringify(createStudentTargetDto)}`);
         
-        return this.StudentTargetService.createStudentTarget(createStudentTargetDto, user);
+        return this.studentTargetService.createStudentTarget(createStudentTargetDto, user);
     }
-
 
 }

@@ -19,9 +19,20 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
         studentId: number,
         targetId: number,
     ): Promise<StudentTarget> {
-        let student = await Student.findOne({ id: studentId })
-        let target = await Target.findOne({ id: targetId })
-        return await StudentTarget.findOne({ student, target });
+        try {
+            let student = await Student.findOne({ id: studentId })
+            let target = await Target.findOne({ id: targetId })
+            let studentTarget = await StudentTarget.findOne({ student, target })
+
+            if(!studentTarget) {
+                throw new NotFoundException(`Not found`);
+            }
+
+            return studentTarget;
+        } catch (error) {
+            this.logger.error(`Not found`, error.stack);
+            return new StudentTarget();
+        }
     }
 
     async createStudentTarget(
@@ -53,6 +64,25 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
         }
 
        return studentTarget;
+    }
+
+    async getStudentTargetsDoneByStudent(studentId: number): Promise<StudentTarget[]> {
+        try {
+            const studentTargets = await StudentTarget.find({ where: { studentId }});
+            // const studentTargets = await StudentTarget
+            //     .createQueryBuilder("student_target")
+            //     .innerJoinAndSelect("student_target.target", "target")
+            //     .where("studentId = :studentId", { studentId })
+            //     .getMany();
+            
+            if(!studentTargets) {
+                throw new NotFoundException(`Not found`);
+            }
+
+            return studentTargets;
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 }
