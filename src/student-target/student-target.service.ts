@@ -35,7 +35,7 @@ export class StudentTargetService {
     //     return this.studentTargetRepository.getStudentTargetsByLevel(level);
     // }
     
-    async getStudentTargetsDoneByStudent(studentId: number): Promise<StudentTarget[]> {
+    async getStudentTargetsDoneByStudent(studentId: number): Promise<Target[]> {
         return this.studentTargetRepository.getStudentTargetsDoneByStudent(studentId);
     }
     

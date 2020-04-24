@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm";
 import { Target } from "../entity/target.entity";
-import { Logger, NotFoundException } from "@nestjs/common";
+import { Logger, NotFoundException, InternalServerErrorException } from "@nestjs/common";
 import { Student } from "src/entity/student.entity";
 import { User } from "src/entity/user.entity";
 import { StudentTarget } from "src/entity/student-target.entity";
@@ -60,26 +60,33 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
 
             await studentTarget.save();
         } catch(error) {
-            console.log(error);
+            throw new InternalServerErrorException('Create failed');
         }
 
        return studentTarget;
     }
 
-    async getStudentTargetsDoneByStudent(studentId: number): Promise<StudentTarget[]> {
+    async getStudentTargetsDoneByStudent(studentId: number): Promise<Target[]> {
         try {
-            const studentTargets = await StudentTarget.find({ where: { studentId }});
-            // const studentTargets = await StudentTarget
-            //     .createQueryBuilder("student_target")
-            //     .innerJoinAndSelect("student_target.target", "target")
-            //     .where("studentId = :studentId", { studentId })
-            //     .getMany();
+            // const studentTargets = await StudentTarget.find({ where: { studentId }});
+            const targets = await Target
+                .createQueryBuilder("target")
+                .where((qb) => {
+                    const subQuery = qb.subQuery()
+                                        .select()
+                                        .from(StudentTarget, "student_target")
+                                        .where(`student_target.targetId = target.id`)
+                                        .andWhere(`student_target.studentId = ${studentId}`)
+                                        .getQuery();
+                    return "EXISTS " + subQuery;
+                })
+                .getMany();
             
-            if(!studentTargets) {
+            if(!targets) {
                 throw new NotFoundException(`Not found`);
             }
 
-            return studentTargets;
+            return targets;
         } catch (error) {
             console.log(error);
         }

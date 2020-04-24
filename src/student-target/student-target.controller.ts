@@ -16,7 +16,7 @@ export class StudentTargetController {
     @Get('/done/:studentId')
     async getStudentTargetsDoneByStudent(
         @Param('studentId', ParseIntPipe) studentId: number
-    ): Promise<StudentTarget[]> {
+    ): Promise<Target[]> {
         return this.studentTargetService.getStudentTargetsDoneByStudent(studentId);
     }
     
