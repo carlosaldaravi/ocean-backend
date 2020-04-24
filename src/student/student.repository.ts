@@ -1,10 +1,10 @@
 import { EntityRepository, Repository } from "typeorm";
 import { Student } from "../entity/student.entity";
-import { Logger, InternalServerErrorException, ConflictException } from "@nestjs/common";
+import { Logger, ConflictException } from "@nestjs/common";
 import { CreateStudentDto } from "./dto/create-student.dto";
-import { AuthCredentialsDto } from "src/auth/dto/auth-credentials.dto";
 import * as bcrypt from 'bcryptjs';
 import { User } from "src/entity/user.entity";
+import { Instructor } from "src/entity/instructor.entity";
 
 @EntityRepository(Student)
 export class StudentRepository extends Repository<Student> {
@@ -26,17 +26,28 @@ export class StudentRepository extends Repository<Student> {
         student.dateBorn = dateBorn;
 
         try {
+            let instructor = await Instructor.findOne({ userId: user.id })
+
+            if(instructor) {
+                throw new ConflictException('Are you crazy? You are instructor, you cant be student');
+            }
+            
             await student.save();
+            
+            delete student.user.password;
+            delete student.user.salt;
+            delete student.user.admin;
+
+            return student;
         } catch (error) {
             if (error.code === '23505') { // duplicate email
                 throw new ConflictException('student already exists');
             } else {
                 this.logger.error(`Failed to create a student. Data: ${createStudentDto}`, error.stack);
-                throw new InternalServerErrorException();
+                throw error;
             }
         }
 
-        return student;
     }
 
     private async hashPassword(password: string, salt: string): Promise<string> {
