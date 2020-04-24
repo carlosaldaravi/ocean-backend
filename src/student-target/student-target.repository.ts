@@ -24,14 +24,14 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
             let target = await Target.findOne({ id: targetId })
             let studentTarget = await StudentTarget.findOne({ student, target })
 
-            if(!studentTarget) {
+            if(!studentTarget) {                
                 throw new NotFoundException(`Not found`);
             }
 
             return studentTarget;
         } catch (error) {
             this.logger.error(`Not found`, error.stack);
-            return new StudentTarget();
+            throw error;
         }
     }
 
@@ -44,6 +44,9 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
             
             students.forEach( async (s) => {
                 let student = await Student.findOne({ id: s.studentId });
+                
+                if(!student) throw new NotFoundException();
+                
                 let targets = s.targetId;
                 targets.forEach( async (t) => {
                     let studentTarget = new StudentTarget();
@@ -56,7 +59,7 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
             });
             return { status: 200 };
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     }
     async createStudentTarget(
@@ -84,7 +87,7 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
 
             await studentTarget.save();
         } catch(error) {
-            throw new InternalServerErrorException('Create failed');
+            throw error;
         }
 
        return studentTarget;
@@ -112,7 +115,7 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
 
             return targets;
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     }
     
@@ -137,8 +140,25 @@ export class StudentTargetRepository extends Repository<StudentTarget> {
 
             return targets;
         } catch (error) {
-            console.log(error);
+            throw error;
         }
+    }
+
+    async setFeedback(studentId: number, targetId: number, feedback: string) {
+        try {
+            let studentTarget = await StudentTarget.findOne({studentId, targetId});
+            
+            if(!studentTarget) {
+                throw new NotFoundException(`Not found`);
+            }
+            
+            studentTarget.feedback = feedback;
+            studentTarget.save();
+            return studentTarget;
+        } catch (error) {
+            throw error;
+        }
+
     }
 
 }

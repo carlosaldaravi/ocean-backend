@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Logger, Get, Param, ParseIntPipe, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Logger, Get, Param, ParseIntPipe, UseGuards, Patch } from '@nestjs/common';
 import { StudentTargetService } from './student-target.service';
 import { StudentTarget } from 'src/entity/student-target.entity';
 import { GetUser } from 'src/auth/get-user.decorator';
@@ -50,9 +50,20 @@ export class StudentTargetController {
         @Body() payload: any,
         @GetUser() user: User,
     ): Promise<any> {
-        this.logger.verbose(`Creating a new student target. Data: ${JSON.stringify(payload)}`);
+        this.logger.verbose(`Creating an array of students targets. Data: ${JSON.stringify(payload)}`);
 
         return this.studentTargetService.createStudentsTargets(payload, user);
+    }
+    
+    @Patch('/:studentId/:targetId')
+    setFeedback(
+        @Param('studentId', ParseIntPipe) studentId: number,
+        @Param('targetId', ParseIntPipe) targetId: number,
+        @Body() body: any
+    ): Promise<any> {
+        this.logger.verbose(`Setting feedback. Data: ${JSON.stringify(body)}`);
+
+        return this.studentTargetService.setFeedback(studentId, targetId, body.feedback);
     }
 
 }
