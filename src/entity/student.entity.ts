@@ -10,6 +10,9 @@ export class Student extends BaseEntity {
   id: number;
 
   @Column()
+  userId: number;
+
+  @Column()
   firstName: string;
   
   @Column()
