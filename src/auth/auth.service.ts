@@ -5,6 +5,7 @@ import { UserRepository } from './user.repository';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { JwtPayload } from './jwt-payload.interface';
 import { User } from 'src/entity/user.entity';
+import { statusNetwork } from '../config/network'
 
 @Injectable()
 export class AuthService {
@@ -20,20 +21,33 @@ export class AuthService {
     return this.userRepository.signUp(authCredentialsDto);
   }
 
-  async signIn(authCredentialsDto: AuthCredentialsDto): Promise<{ accessToken: string }> {
-    console.log('payload: ', authCredentialsDto);
+  async signIn(authCredentialsDto: AuthCredentialsDto): Promise<object> {
     try {
-      const email = await this.userRepository.validateUserPassword(authCredentialsDto);
+      
+      const obj = await this.userRepository.validateUserPassword(authCredentialsDto);
 
-      if (!email) {
-        throw new UnauthorizedException('Invalid credentials');
+      if(!obj){
+        return {
+          status: statusNetwork.UNAUTHORIZED,
+          message: 'Invalid credentials'
+        }
       }
+      const email = obj.email;
+      const rol = obj.rol;
 
       const payload: JwtPayload = { email };
       const accessToken = await this.jwtService.sign(payload);
       this.logger.debug(`Generated JWT Token with payload ${JSON.stringify(payload)}`);
       
-      return { accessToken };
+      let response = {
+        data:{
+          status: statusNetwork.SUCCESS,
+          accessToken,
+          rol
+        }
+      }
+      console.log(response);
+      return response;
 
     } catch (error) {
       throw error;

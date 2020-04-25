@@ -3,6 +3,8 @@ import { ConflictException, InternalServerErrorException } from '@nestjs/common'
 import * as bcrypt from 'bcryptjs';
 import { User } from '../entity/user.entity';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
+import { Student } from 'src/entity/student.entity';
+import { Instructor } from 'src/entity/instructor.entity';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
@@ -16,7 +18,7 @@ export class UserRepository extends Repository<User> {
 
     try {
       await user.save();
-      
+
       delete user.password;
       delete user.salt;
 
@@ -30,12 +32,18 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  async validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<string> {
+  async validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<any> {
     const { email, password } = authCredentialsDto;
     const user = await User.findOne({ email });
-
+    
     if (user && await user.validatePassword(password)) {
-      return user.email;
+      
+      let rol = await this.getUserRol(user);
+      let response = {
+        email: user.email,
+        rol
+      }
+      return response;
     } else {
       return null;
     }
@@ -43,5 +51,18 @@ export class UserRepository extends Repository<User> {
 
   private async hashPassword(password: string, salt: string): Promise<string> {
     return bcrypt.hash(password, salt);
+  }
+
+  private async getUserRol(user): Promise<string> {
+    if (user.admin) return 'admin';
+
+    let student = await Student.findOne({ userId: user.id });
+    if (student) return 'student';
+
+    let instructor = await Instructor.findOne({ userId: user.id });
+    if (instructor) return 'instructor';
+
+    return 'basic';
+
   }
 }
