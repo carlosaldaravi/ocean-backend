@@ -53,7 +53,4 @@ export class InstructorRepository extends Repository<Instructor> {
 
     }
 
-    private async hashPassword(password: string, salt: string): Promise<string> {
-        return bcrypt.hash(password, salt);
-    }
 }
